@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" role="img" aria-labelledby="title desc">
+  <title id="title">Angle AVB</title>
+  <desc id="desc">Two rays from vertex V forming angle AVB.</desc>
+  <style>
+    .edge { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+    .arc { fill: none; stroke: currentColor; stroke-width: 2; }
+    .lbl { font: 700 16px system-ui, -apple-system, sans-serif; fill: currentColor; }
+    .pt { fill: currentColor; }
+  </style>
+  <line class="edge" x1="50" y1="190" x2="280" y2="190"/>
+  <line class="edge" x1="50" y1="190" x2="220" y2="40"/>
+  <path class="arc" d="M100,190 A50,50 0 0 1 92,147"/>
+  <circle class="pt" cx="50" cy="190" r="3.5"/>
+  <text class="lbl" x="36" y="214">V</text>
+  <text class="lbl" x="286" y="196">B</text>
+  <text class="lbl" x="226" y="36">A</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-labelledby="title desc">
+  <title id="title">Parallel lines cut by a transversal</title>
+  <desc id="desc">Lines l and m are parallel. Transversal t crosses both, forming corresponding angles 1 and 2.</desc>
+  <style>
+    .edge { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; }
+    .tick { fill: none; stroke: currentColor; stroke-width: 2; }
+    .lbl { font: 700 16px system-ui, -apple-system, sans-serif; fill: currentColor; }
+  </style>
+  <line class="edge" x1="30" y1="80" x2="290" y2="80"/>
+  <line class="edge" x1="30" y1="180" x2="290" y2="180"/>
+  <line class="edge" x1="90" y1="30" x2="230" y2="230"/>
+  <!-- parallel marks -->
+  <line class="tick" x1="154" y1="72" x2="166" y2="88"/>
+  <line class="tick" x1="154" y1="172" x2="166" y2="188"/>
+  <text class="lbl" x="296" y="86">ℓ</text>
+  <text class="lbl" x="296" y="186">m</text>
+  <text class="lbl" x="236" y="236">t</text>
+  <text class="lbl" x="148" y="68">1</text>
+  <text class="lbl" x="168" y="168">2</text>
+</svg>

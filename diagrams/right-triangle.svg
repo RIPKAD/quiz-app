@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 260" role="img" aria-labelledby="title desc">
+  <title id="title">Right triangle ABC</title>
+  <desc id="desc">Right triangle ABC with right angle at C. Legs a and b, hypotenuse c.</desc>
+  <style>
+    .edge { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .mark { fill: none; stroke: currentColor; stroke-width: 2; }
+    .lbl { font: 700 16px system-ui, -apple-system, sans-serif; fill: currentColor; }
+    .pt { fill: currentColor; }
+  </style>
+  <!-- triangle: C(50,200) B(270,200) A(50,50) -->
+  <polygon class="edge" points="50,200 270,200 50,50"/>
+  <!-- right-angle mark at C -->
+  <path class="mark" d="M50,180 L70,180 L70,200"/>
+  <circle class="pt" cx="50" cy="50" r="3.5"/>
+  <circle class="pt" cx="270" cy="200" r="3.5"/>
+  <circle class="pt" cx="50" cy="200" r="3.5"/>
+  <text class="lbl" x="36" y="46">A</text>
+  <text class="lbl" x="278" y="216">B</text>
+  <text class="lbl" x="32" y="222">C</text>
+  <text class="lbl" x="18" y="130">b</text>
+  <text class="lbl" x="150" y="224">a</text>
+  <text class="lbl" x="168" y="112">c</text>
+</svg>

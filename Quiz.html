@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Quiz</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <main>
+    <section id="home" class="screen">
+      <h1>Quiz</h1>
+      <p class="lede">Pick a subject, then a quiz bank. Missed items go to the back of the deck until they are correct.</p>
+      <div id="topic-list" class="bank-list"></div>
+    </section>
+
+    <section id="banks" class="screen" hidden>
+      <div class="topbar">
+        <button type="button" class="nav" id="back-topics">Subjects</button>
+        <span class="meta" id="topic-heading"></span>
+      </div>
+      <h1 id="banks-title">Quiz banks</h1>
+      <p class="lede" id="banks-lede"></p>
+      <div id="bank-list" class="bank-list"></div>
+    </section>
+
+    <section id="quiz" class="screen" hidden>
+      <div class="topbar">
+        <button type="button" class="nav" id="back-banks">Banks</button>
+        <span class="meta" id="topic-title"></span>
+      </div>
+      <h3 id="qu_num"></h3>
+      <div class="card">
+        <div id="diagram-wrap" class="diagram-wrap" hidden></div>
+        <p id="qu"></p>
+        <div id="choices" class="choices"></div>
+        <p id="prompt"></p>
+        <p id="feedback"></p>
+        <button type="button" id="next_q" hidden>Next question</button>
+      </div>
+    </section>
+  </main>
+  <script src="catalog.js"></script>
+  <script src="quiz-engine.js"></script>
+</body>
+</html>
