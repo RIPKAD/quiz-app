@@ -1,80 +1,191 @@
-// Format: [prompt, answer] or [prompt, answer, "diagrams/file.svg"]
+// Format:
+// [prompt, correct, distractor1, distractor2]
+// [prompt, correct, distractor1, distractor2, "diagrams/file.svg"]
 var question = [
 
-["Point:", "represents a precise location in space with no length, width, height, or thickness"],
+["A point is:",
+  "a precise location in space with no length, width, or thickness",
+  "a location that has length but no width or thickness",
+  "the shortest path joining two locations"],
 
-["Line:", " a straight path that extends forever in both directions with no thickness or endpoints"],
+["A line is:",
+  "a straight path that extends forever in both directions, with no thickness and no endpoints",
+  "a straight path with two endpoints and finite length",
+  "a straight path that starts at a point and extends forever in one direction"],
 
-["Plane:", " has length and width, but no height or thickness"],
+["A plane is:",
+  "a flat surface with length and width but no thickness, extending without bound",
+  "a surface with length, width, and thickness",
+  "the set of all points at a fixed distance from a given point"],
 
-["One-line postulate:", "one and only one line can be drawn between any two distinct points"],
+["Two-point postulate:",
+  "through any two distinct points there is exactly one line",
+  "through any two distinct points there are infinitely many lines",
+  "through any two distinct points there is exactly one plane"],
 
-["Two points one line postulate:", " through any two points there is only one line"],
+["Shortest-distance postulate:",
+  "the shortest path between two points is the line segment joining them",
+  "the shortest path between two points is a circular arc",
+  "the shortest path between two points follows two sides of a triangle"],
 
-["Shortest distance postulate:", " the shortest distance between any two points is a straight line"],
+["The distance between two points on a number line is:",
+  "the absolute value of the difference of their coordinates",
+  "the sum of their coordinates",
+  "the product of their coordinates"],
 
-["Distance:", "the absolute value of the difference of the coordinates of two points"],
+["A line segment is:",
+  "the portion of a line lying between two points (the endpoints)",
+  "a line that extends forever in both directions",
+  "a path that starts at a point and extends forever in one direction"],
 
-["Line segment:", " the portion of a line that lies between two points"],
+["Segment addition postulate:",
+  "if \\(B\\) lies on segment \\(AC\\), then \\(AB+BC=AC\\)",
+  "if \\(B\\) lies on segment \\(AC\\), then \\(AB+AC=BC\\)",
+  "if \\(B\\) does not lie on segment \\(AC\\), then \\(AB+BC=AC\\)"],
 
-["Segment addition postulate:", " if B lies on segment AC then AB + BC = AC"],
+["Midpoint theorem:",
+  "the midpoint of a segment divides it into two congruent segments, each half as long as the original",
+  "the midpoint divides the segment into two pieces whose lengths sum to half the original",
+  "any point between the endpoints is a midpoint",
+  "diagrams/midpoint.svg"],
 
-["Midpoint theorem:", " the midpoint of a segment divides the segment into two segments of equal distance (congruent) each half the distance of the original segment", "diagrams/midpoint.svg"],
+["Parallel lines are:",
+  "coplanar lines that do not intersect",
+  "coplanar lines that meet in exactly one point",
+  "non-coplanar lines that never meet (skew lines)"],
 
-["Parallel lines:", " two co-planer lines that do not intersect (share no points in common)"],
+["Parallel postulate:",
+  "through a point not on line \\(L\\) there is exactly one line parallel to \\(L\\)",
+  "through a point not on line \\(L\\) there are infinitely many lines parallel to \\(L\\)",
+  "through a point not on line \\(L\\) there is no line parallel to \\(L\\)"],
 
-["Parallel postulate:", " through a point not on line L there is one and only one line M such that L is parallel to M"],
+["Congruent means:",
+  "having equal measure (same length or same angle measure)",
+  "having measures that sum to \\(180^\\circ\\)",
+  "having the same shape but not necessarily the same size"],
 
-["Congruent:", " having equal measure (distance or an angle)"],
+["Two angles are supplementary when:",
+  "their measures sum to \\(180^\\circ\\)",
+  "their measures sum to \\(90^\\circ\\)",
+  "their measures are equal"],
 
-["Supplementary:", " two angles whose measures sum to 180 degrees"],
+["Two angles are complementary when:",
+  "their measures sum to \\(90^\\circ\\)",
+  "their measures sum to \\(180^\\circ\\)",
+  "their measures are equal"],
 
-["Complementary:", " two angles whose measures sum to 90°"],
+["A transversal is:",
+  "a line that intersects two (or more) lines at distinct points",
+  "a line parallel to two given lines",
+  "a ray that bisects an angle"],
 
-["Transversal:", " a line that crosses two parallel lines at distinct points"],
+["Interior angles (transversal):",
+  "the angles that lie between the two lines cut by the transversal",
+  "the angles that lie outside the two lines cut by the transversal",
+  "angles that share a vertex but no side"],
 
-["Transversal theorem:", " all angles formed by a transversal are either complementary or congruent"],
+["Exterior angles (transversal):",
+  "the angles that lie outside the two lines cut by the transversal",
+  "the angles that lie between the two lines cut by the transversal",
+  "angles whose measures sum to \\(90^\\circ\\)"],
 
-["Interior angles:", " angles formed by a transversal that lie between two parallel lines"],
+["Corresponding angles are:",
+  "angles in the same relative position at each intersection of a transversal with two lines",
+  "angles on opposite sides of the transversal and between the two lines",
+  "angles on the same side of the transversal and between the two lines",
+  "diagrams/parallel-transversal.svg"],
 
-["Exterior angles:", " angles formed by a transversal that lie outside two parallel lines"],
+["Alternate interior angles are:",
+  "interior angles on opposite sides of the transversal",
+  "interior angles on the same side of the transversal",
+  "angles in the same relative position at each intersection"],
 
-["Corresponding angles:", " two angles in the same relative position formed when a transversal cuts two parallel lines", "diagrams/parallel-transversal.svg"],
+["Consecutive (same-side) interior angles are:",
+  "interior angles on the same side of the transversal",
+  "interior angles on opposite sides of the transversal",
+  "angles that share a vertex but no side"],
 
-["Alternate angles:", " two angles on the opposite side of a transversal"],
+["If two parallel lines are cut by a transversal then:",
+  "corresponding angles are congruent, alternate interior angles are congruent, and consecutive interior angles are supplementary",
+  "corresponding angles are supplementary and consecutive interior angles are congruent",
+  "all eight angles are congruent and none are supplementary"],
 
-["Consecutive (same side) angles:", " same side of transversal, not corresponding (either interior or exterior)"],
+["A ray is:",
+  "the set of points consisting of an endpoint and all points of a line on one side of that endpoint",
+  "a straight path that extends forever in both directions",
+  "the portion of a line between two endpoints"],
 
-["Parallel transversal postulate: if two parallel lines are cut by a transversal:", " 1) corresponding angles are congruent 2) alternate interior angles are congruent 3) consecutive (same-side) interior angles are supplementary"],
+["An angle is:",
+  "the figure formed by two rays that share an endpoint (the vertex)",
+  "the figure formed by two lines that do not meet",
+  "the portion of a line between two points",
+  "diagrams/angle.svg"],
 
-["Ray:", " an object formed by a point and a distinct line continuing indefinitely from that point"],
+["Vertical angles are:",
+  "the opposite angles formed when two lines intersect; they share a vertex but no side",
+  "adjacent angles that share a side and form a straight line",
+  "angles whose measures sum to \\(90^\\circ\\)",
+  "diagrams/vertical-angles.svg"],
 
-["Angle:", " an object formed by two rays that share a common end point, called a vertex", "diagrams/angle.svg"],
+["A linear pair is:",
+  "two adjacent angles whose noncommon sides form a line; the angles are supplementary",
+  "two angles that share a vertex but no side",
+  "two angles whose measures sum to \\(90^\\circ\\)",
+  "diagrams/linear-pair.svg"],
 
-["Vertical angles:", "two angles formed by the intersection of two lines, both sharing a common vertex, but no common sides", "diagrams/vertical-angles.svg"],
+["Vertical angle theorem:",
+  "vertical angles are congruent",
+  "vertical angles are supplementary",
+  "vertical angles are complementary"],
 
-["Linear Pair:", "two angles formed by the intersection of two lines, both supplementary and adjacent (sharing a common vertex and one side).", "diagrams/linear-pair.svg"],
+["The measure of an angle is:",
+  "the amount of rotation from one ray to the other about the vertex, in degrees or radians",
+  "the length of the two rays",
+  "the area enclosed by the two rays"],
 
-["Vertical angle theorem:", " vertical angles are congruent"],
+["Perpendicular lines are:",
+  "intersecting lines that form a right angle",
+  "lines that never intersect",
+  "coplanar lines that share no points"],
 
-["Angle measure:", "the amount of rotation required to turn one ray (the initial side) around a shared endpoint (the vertex) until it coincides with another ray (the terminal side measured in degrees or radians"],
+["An acute angle is:",
+  "an angle whose measure is less than \\(90^\\circ\\)",
+  "an angle whose measure is \\(90^\\circ\\)",
+  "an angle whose measure is greater than \\(90^\\circ\\) and less than \\(180^\\circ\\)"],
 
-["Perpendicular lines:", " two intersecting lines that formed a right angle at the point of intersection"],
+["A right angle is:",
+  "an angle whose measure is \\(90^\\circ\\)",
+  "an angle whose measure is less than \\(90^\\circ\\)",
+  "an angle whose measure is \\(180^\\circ\\)"],
 
-["Acute angle:", " an angle with measure less than 90°"],
+["An obtuse angle is:",
+  "an angle whose measure is greater than \\(90^\\circ\\) and less than \\(180^\\circ\\)",
+  "an angle whose measure is less than \\(90^\\circ\\)",
+  "an angle whose measure is \\(90^\\circ\\)"],
 
-["Right angle:", " an angle with measure equal to 90°"],
+["Supplementary angle theorem:",
+  "if two angles are supplementary to the same angle, then they are congruent",
+  "if two angles are supplementary to the same angle, then they are complementary",
+  "if two angles are supplementary, then each measures \\(90^\\circ\\)"],
 
-["Obtuse angle:", " an angle with measure greater than 90°, but less than 180°"],
+["Complementary angle theorem:",
+  "if two angles are complementary to the same angle, then they are congruent",
+  "if two angles are complementary to the same angle, then they are supplementary",
+  "if two angles are complementary, then each measures \\(180^\\circ\\)"],
 
-["Supplementary angle theorem:", " if two angles are supplementary to the same angle, then they are congruent"],
+["Angle addition postulate:",
+  "if \\(B\\) is in the interior of \\(\\angle AVC\\), then \\(m\\angle AVB+m\\angle BVC=m\\angle AVC\\)",
+  "if \\(B\\) is in the interior of \\(\\angle AVC\\), then \\(m\\angle AVB=m\\angle AVC\\)",
+  "if \\(B\\) is not in the interior of \\(\\angle AVC\\), then \\(m\\angle AVB+m\\angle BVC=m\\angle AVC\\)"],
 
-["Complementary angle theorem:", " if two angles are complementary to the same angle, then they are congruent"],
+["An angle bisector is:",
+  "a ray that divides an angle into two congruent angles",
+  "a ray that divides an angle into two supplementary angles",
+  "a line through the vertex perpendicular to one side"],
 
-["Angle addition postulate:", " if point B is the interior of an angle AVC then the measure of an angle AVB plus an angle BVC is equal to the measure of angle AVC"],
-
-["Angle bisector:", " a ray that divides an angle into two angles of equal measure"],
-
-["Angle bisector theorem:", " if a ray bisects an angle then the two angles formed, have the same measure which is equal to 1/2 the measure of the original angle"]
+["Angle bisector theorem (definition form):",
+  "if a ray bisects an angle, the two resulting angles are congruent and each is half the original",
+  "if a ray bisects an angle, the two resulting angles are supplementary",
+  "if a ray bisects an angle, each new angle equals the original angle"]
 
 ];

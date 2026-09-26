@@ -187,21 +187,36 @@ async function openBank(bank) {
   }
 }
 
+function isDiagramPath(value) {
+  if (typeof value !== "string") return false;
+  const s = value.trim();
+  return /\.svg$|\.png$|\.jpg$|\.jpeg$|\.webp$/i.test(s) || s.indexOf("diagrams/") === 0;
+}
+
 function normalize(raw) {
   return raw.map((item, i) => {
     if (Array.isArray(item)) {
-      return {
-        id: i,
-        prompt: String(item[0] ?? "").trim(),
-        answer: String(item[1] ?? "").trim(),
-        diagram: item[2] ? { src: item[2], alt: String(item[0] ?? "").trim() } : null
-      };
+      const prompt = String(item[0] ?? "").trim();
+      const answer = String(item[1] ?? "").trim();
+      const tail = item.slice(2);
+      let diagram = null;
+      if (tail.length && isDiagramPath(tail[tail.length - 1])) {
+        diagram = { src: tail.pop().trim(), alt: prompt };
+      }
+      const distractors = tail
+        .filter((x) => typeof x === "string" && x.trim() && !isDiagramPath(x))
+        .map((x) => x.trim());
+      return { id: i, prompt, answer, distractors, diagram };
     }
+    const diagram = item.diagram
+      ? (typeof item.diagram === "string" ? { src: item.diagram, alt: item.prompt } : item.diagram)
+      : null;
     return {
       id: i,
       prompt: item.prompt,
       answer: item.answer,
-      diagram: item.diagram || null
+      distractors: item.distractors || [],
+      diagram
     };
   }).filter((q) => q.prompt && q.answer);
 }
@@ -219,15 +234,20 @@ function shuffle(array) {
   return a;
 }
 
-function pickChoices(correctId, count) {
-  const pool = questions.map((_, i) => i).filter((i) => i !== correctId);
-  const others = shuffle(pool).slice(0, Math.min(count - 1, pool.length));
-  return shuffle([correctId, ...others]);
+function pickChoiceTexts(q) {
+  if (q.distractors && q.distractors.length) {
+    return shuffle([q.answer].concat(q.distractors));
+  }
+  const others = questions
+    .filter((item) => item.id !== q.id)
+    .map((item) => item.answer);
+  return shuffle([q.answer].concat(shuffle(others).slice(0, 2)));
 }
 
 function startQuiz(title, raw) {
   questions = normalize(raw);
-  if (questions.length < 3) {
+  const needsBorrow = questions.some((q) => !q.distractors || !q.distractors.length);
+  if (needsBorrow && questions.length < 3) {
     alert("Need at least 3 items so there are two distractors.");
     return;
   }
@@ -263,15 +283,15 @@ function writeQu() {
   el.qu.innerHTML = q.prompt;
   renderDiagram(q.diagram);
 
-  currentChoices = pickChoices(qid, 3);
-  correctIndex = currentChoices.indexOf(qid);
+  currentChoices = pickChoiceTexts(q);
+  correctIndex = currentChoices.indexOf(q.answer);
 
   el.choices.replaceChildren();
-  currentChoices.forEach((choiceId, i) => {
+  currentChoices.forEach((choiceText, i) => {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "choice";
-    btn.innerHTML = (i + 1) + ") " + questions[choiceId].answer;
+    btn.innerHTML = (i + 1) + ") " + choiceText;
     btn.addEventListener("click", () => checkAnswer(i, btn));
     el.choices.appendChild(btn);
   });

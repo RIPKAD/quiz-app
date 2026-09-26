@@ -1,48 +1,109 @@
-var question = [			
+// Format: [prompt, correct, distractor1, distractor2]
+var question = [
 
-["\\(S\\) is a subspace of \\(V\\) provided that:", "\\( S\\subseteq V\\) and \\(S\\) is also a vector space with the same operations vector addition and scalar multiplication as defined on \\(V\\)."],
+["\\(S\\) is a subspace of \\(V\\) provided that:",
+  "\\( S\\subseteq V\\) and \\(S\\) is also a vector space with the same operations vector addition and scalar multiplication as defined on \\(V\\).",
+  "\\( S\\subseteq V\\) and \\(S\\) is nonempty, with no further restrictions.",
+  "\\( S\\) contains a basis of \\(V\\)."],
 
-["Let \\(V\\) be a vector space over \\(F\\) and let \\(x \\in V\\).  Then \\(x\\) is a linear combination of vectors in \\( S=\\{v_{i}\\}_{i=1}^{n} \\subset V\\)  provided that:", "there exists scalars \\(\\{a_{i}\\}_{i=1}^{n} \\subset F\\) such that \\( x=\\sum\\nolimits _{i=1}^{n} a_{i} v_{i}\\)."],
+["Let \\(V\\) be a vector space over \\(F\\) and let \\(x \\in V\\).  Then \\(x\\) is a linear combination of vectors in \\( S=\\{v_{i}\\}_{i=1}^{n} \\subset V\\)  provided that:",
+  "there exist scalars \\(\\{a_{i}\\}_{i=1}^{n} \\subset F\\) such that \\( x=\\sum\\nolimits _{i=1}^{n} a_{i} v_{i}\\).",
+  "each \\( v_{i}\\) is a scalar multiple of \\( x\\).",
+  "\\( x\\) is orthogonal to every vector in \\( S\\)."],
 
-["Let \\(V\\) be a vector space over \\(F\\) and let \\( S\\subseteq V\\).  Then \\(x \\in span(S)\\) provided that:", "\\(x\\) is a linear combination of vectors in \\(S\\).  Note that \\( span( \\emptyset ) =\\{0\\}\\)."],
+["Let \\(V\\) be a vector space over \\(F\\) and let \\( S\\subseteq V\\).  Then \\(x \\in span(S)\\) provided that:",
+  "\\(x\\) is a linear combination of vectors in \\(S\\).  Note that \\( span( \\emptyset ) =\\{0\\}\\).",
+  "\\(x\\) is orthogonal to every vector in \\(S\\).",
+  "\\( S\\subseteq span(\\{x\\})\\)."],
 
-["A set of vectors \\(S\\) is linearly dependent provided that:", "the homogeneous linear systems formed from vectors in \\(S\\) has a non-trivial solution."],
+["A set of vectors \\(S\\) is linearly dependent provided that:",
+  "the homogeneous linear system formed from vectors in \\(S\\) has a non-trivial solution.",
+  "the homogeneous linear system formed from vectors in \\(S\\) has only the trivial solution.",
+  "\\( S\\) spans \\( V\\)."],
 
-["A set \\( \\beta \\) is a basis for a vector space \\(V\\) provided that:", "\\( V=span( \\beta )\\) and \\( \\beta \\) is linearly independent set."],
+["A set \\( \\beta \\) is a basis for a vector space \\(V\\) provided that:",
+  "\\( V=span( \\beta )\\) and \\( \\beta \\) is a linearly independent set.",
+  "\\( \\beta \\) spans \\( V\\), with no independence required.",
+  "\\( \\beta \\) is linearly independent, with no spanning required."],
 
-["The dimension of a vector space \\(V\\):", "is the number of vectors contained in any basis of \\(V\\)."],
+["The dimension of a vector space \\(V\\):",
+  "is the number of vectors contained in any basis of \\(V\\).",
+  "is the number of vectors in \\( V\\).",
+  "is the number of subspaces of \\( V\\)."],
 
-["If \\( x,y,z \\in V\\) such that \\(x+z=y+z\\) then:",  "\\(x=y\\)."],
+["If \\( x,y,z \\in V\\) such that \\(x+z=y+z\\) then:",
+  "\\(x=y\\).",
+  "\\(x=-y\\).",
+  "\\(z=0\\)."],
 
-["\\(W\\) is a subspace of \\(V\\) if and only if:", "\\(0 \\in W\\) and \\(W\\) is closed under vector addition and scalar multiplication."],
+["\\(W\\) is a subspace of \\(V\\) if and only if:",
+  "\\(0 \\in W\\) and \\(W\\) is closed under vector addition and scalar multiplication.",
+  "\\( W\\) is nonempty and closed under addition only.",
+  "\\( W\\) contains a basis of \\( V\\)."],
 
+["Let \\(W_{1}\\) and \\(W_{2}\\) be subspaces of \\(V\\).  Then \\(W_{1} \\cup W_{2}\\) is a subspace of \\(V\\) if and only if:",
+  "\\(W_{1} \\subseteq W_{2}\\) or \\(W_{2} \\subseteq W_{1}\\).",
+  "\\( W_{1}\\cap W_{2}=\\{0\\}\\).",
+  "\\( W_{1}\\) and \\( W_{2}\\) have the same dimension."],
 
-["Let \\(W_{1}\\) and \\(W_{2}\\) be subspaces of \\(V\\).  Then \\(W_{1} \\cup W_{2}\\) is a subspace of \\(V\\) if and only if:", "\\(W_{1} \\subseteq W_{2}\\) or \\(W_{2} \\subseteq W_{1}\\)."],
+["Any intersection of subspaces of \\(V\\) is:",
+  "a subspace of \\(V\\).",
+  "a basis of \\(V\\).",
+  "equal to \\( \\{0\\}\\)."],
 
-["Any intersection of subspaces of \\(V\\) is:", "a subspace of \\(V\\)."],
+["The span of any subset \\(S\\) of a vector space \\(V\\) is:",
+  "a subspace of \\(V\\).",
+  "a basis of \\(V\\).",
+  "linearly independent."],
 
-["The span of any subset \\(S\\) of a vector space \\(V\\) is:", "a subspace of \\(V\\)."],
+["Any subspace of \\(V\\) containing \\(S\\) must also contain:",
+  "\\( span( S)\\).",
+  "a basis of \\( V\\).",
+  "only the zero vector."],
 
-["Any subspace of \\(V\\) containing \\(S\\) must also contain:", "\\( span( S)\\)."],
-
-["\\(span( S)\\) is the smallest subspace of \\(V\\) containing:", "\\(S\\)"],
+["\\(span( S)\\) is the smallest subspace of \\(V\\) containing:",
+  "\\(S\\)",
+  "a basis of \\( V\\)",
+  "every subspace of \\( V\\)"],
 
 ["Let V be a vector space and let \\(S_{1} \\subseteq S_{2} \\subseteq V\\).  Then:",
-"\\( S_{1}\\) is linearly dependent implies \\(S_{2}\\) is linearly dependent and \\( S_{2}\\) is linearly independent implies \\(S_{1}\\) is linearly independent."],
+  "\\( S_{1}\\) linearly dependent implies \\(S_{2}\\) linearly dependent, and \\( S_{2}\\) linearly independent implies \\(S_{1}\\) linearly independent.",
+  "\\( S_{1}\\) linearly independent implies \\(S_{2}\\) linearly independent.",
+  "\\( S_{2}\\) linearly dependent implies \\(S_{1}\\) linearly independent."],
 
-["Let \\( S\\) be a linearly independent subset of a vector space \\(V\\) and let \\( x\\in V\\) and \\(x\\notin S\\).  Then \\(S\\cup \\{x\\}\\) is linearly dependent if and only if:", "\\( x\\in span( S)\\)."],
+["Let \\( S\\) be a linearly independent subset of a vector space \\(V\\) and let \\( x\\in V\\) and \\(x\\notin S\\).  Then \\(S\\cup \\{x\\}\\) is linearly dependent if and only if:",
+  "\\( x\\in span( S)\\).",
+  "\\( x\\notin span( S)\\).",
+  "\\( S\\) spans \\( V\\)."],
 
-["\\( \\beta \\) is a basis for \\( V\\) if and only if:", "each vector in \\(V\\) can be uniquely expressed as a linear combination of vectors in \\( \\beta \\)."],
+["\\( \\beta \\) is a basis for \\( V\\) if and only if:",
+  "each vector in \\(V\\) can be uniquely expressed as a linear combination of vectors in \\( \\beta \\).",
+  "each vector in \\(V\\) can be written as a linear combination of vectors in \\( \\beta \\) in at least two ways.",
+  "\\( \\beta \\) is finite."],
 
-["If a vector space \\( V\\) is generated by a finite set \\(S\\) then:", "some subset of \\( S\\) is a basis for \\( V\\).  Hence, \\(V\\) has a finite basis."],
+["If a vector space \\( V\\) is generated by a finite set \\(S\\) then:",
+  "some subset of \\( S\\) is a basis for \\( V\\).  Hence \\(V\\) has a finite basis.",
+  "every subset of \\( S\\) is a basis for \\( V\\).",
+  "\\( V\\) has no finite basis."],
 
-["Let \\( V\\) be a vector space and let \\(G\\) be a generating set of \\( V\\) with \\( |G| =m\\).  Let \\(L\\) be a linearly independent subset of \\(V\\) with \\(|L| =n\\).  Then:", "\\(m\\geqslant n\\) and there exists a subset \\(H\\) of \\(G\\) such that \\(|H| =m-n\\) and \\(L\\cup H\\) generates \\(V\\)."],
+["Let \\( V\\) be a vector space and let \\(G\\) be a generating set of \\( V\\) with \\( |G| =m\\).  Let \\(L\\) be a linearly independent subset of \\(V\\) with \\(|L| =n\\).  Then:",
+  "\\(m\\geqslant n\\) and there exists a subset \\(H\\) of \\(G\\) such that \\(|H| =m-n\\) and \\(L\\cup H\\) generates \\(V\\).",
+  "\\( n\\geqslant m\\) and \\( L\\) must already generate \\( V\\).",
+  "\\( m=n\\) and \\( G=L\\)."],
 
-["Let \\( \\beta\\) be a basis for a finite dimensional vector space \\(V\\).  Then any basis for \\(V\\):", "has the same number of vectors as \\(\\beta\\)."],
+["Let \\( \\beta\\) be a basis for a finite dimensional vector space \\(V\\).  Then any basis for \\(V\\):",
+  "has the same number of vectors as \\(\\beta\\).",
+  "has more vectors than \\( \\beta\\).",
+  "has fewer vectors than \\( \\beta\\)."],
 
-["Let \\(V\\) be a vector space with dimension \\(n\\). Then:", "a finite generating set of \\(V\\) has at least \\(n\\) vectors, a generating set for \\(V\\) has with exactly \\(n\\) vectors is a basis for \\(V\\), any linearly independent subset of \\(V\\) with exactly \\(n\\) vectors is a basis for \\(V\\), and every linearly independent subset of \\(V\\) can be extended to a basis for \\(V\\)."],
+["Let \\(V\\) be a vector space with dimension \\(n\\). Then:",
+  "a finite generating set of \\(V\\) has at least \\(n\\) vectors; a generating set with exactly \\(n\\) vectors is a basis; any linearly independent subset with exactly \\(n\\) vectors is a basis; and every linearly independent subset can be extended to a basis.",
+  "every generating set has at most \\( n\\) vectors, and no independent set can be extended.",
+  "every subset with \\( n\\) vectors is a basis."],
 
-["Let \\(W\\) be a subspace of a finite dimensional vector space \\(V\\).  Then:", "\\(W\\) is finite dimensional and \\(dim( W) \\leqslant dim(V)\\).  Moreover \\(dim(W) =dim(V)\\) implies \\(W=V\\)."]
-
+["Let \\(W\\) be a subspace of a finite dimensional vector space \\(V\\).  Then:",
+  "\\(W\\) is finite dimensional and \\(dim( W) \\leqslant dim(V)\\).  Moreover \\(dim(W) =dim(V)\\) implies \\(W=V\\).",
+  "\\( dim(W)\\) may exceed \\( dim(V)\\).",
+  "\\( dim(W)=dim(V)\\) does not force \\( W=V\\)."]
 
 ];
